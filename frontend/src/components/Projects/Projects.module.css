@@ -9,6 +9,7 @@
 }
 
 .title {
+  display: inline-block;
   font-size: clamp(2rem, 4vw, 3rem);
   font-weight: 800;
   background: linear-gradient(135deg, #7c3aed, #ec4899);

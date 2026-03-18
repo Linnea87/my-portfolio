@@ -11,13 +11,14 @@
 }
 
 .title {
-    font-size: clamp(2rem, 4vw, 3rem);
-    font-weight: 800;
-    background: linear-gradient(135deg, #7c3aed, #ec4899);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    margin-bottom: 0.5rem;
+  display: inline-block;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+  background: linear-gradient(135deg, #7c3aed, #ec4899);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 0.5rem;
 }
 
 .subtitle {
