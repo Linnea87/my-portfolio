@@ -1,6 +1,8 @@
 import { motion } from 'framer-motion';
 import styles from './About.module.css';
 import globalStyles from '../../styles/global.module.css';
+import illustration from '../../assets/illustration.png';
+
 
 
 // ====== About Component ===============================
@@ -21,7 +23,7 @@ const About = () => {
                     viewport={{ once: true }}
                 >
                     <div className={styles.placeholder}>
-                        <span>🎨</span>
+                        <img src={illustration} alt="Illustration" className={styles.illustration} />
                     </div>
                 </motion.div>
 
@@ -32,7 +34,7 @@ const About = () => {
                     transition={{ duration: 0.6, delay: 0.2 }}
                     viewport={{ once: true }}
                 >
-                    <h2 className={styles.title}>About <span className={globalStyles.accent}>Me</span></h2>
+                    <h2 className={globalStyles.title}>About <span className={globalStyles.accent}>Me</span></h2>
 
 
                     <p className={styles.bio}>
