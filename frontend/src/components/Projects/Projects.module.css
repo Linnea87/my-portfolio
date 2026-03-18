@@ -1,6 +1,8 @@
 .projects {
-  padding: 6rem 4rem;
-  background: linear-gradient(180deg, #16213e 0%, #1a1a2e 100%)
+  padding: 8rem 4rem 6rem 4rem;
+  background: linear-gradient(180deg, #16213e 0%, #1a1a2e 100%);
+  scroll-snap-align: start;
+  min-height: 100vh;
 }
 
 .header {

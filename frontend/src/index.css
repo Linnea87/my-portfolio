@@ -4,9 +4,18 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+}
+
 body {
   background-color: #1a1a2e;
   color: #ffffff;
   font-family: 'Segoe UI', sans-serif;
-  scroll-behavior: smooth;
+}
+
+section {
+  scroll-snap-align: start;
+  min-height: 100vh;
 }
