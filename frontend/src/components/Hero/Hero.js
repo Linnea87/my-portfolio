@@ -1,0 +1,63 @@
+import React from 'react';
+import { motion } from 'framer-motion';
+import styles from './Hero.module.css';
+import heroBg from '../../assets/hero-bg.jpg';
+
+const Hero = () => {
+    return (
+        <section className={styles.hero} id="hero" style={{ backgroundImage: `url(${heroBg})` }}>
+            <div className={styles.content}>
+                <motion.p
+                    className={styles.greeting}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6 }}
+                >
+                    Hi, I'm
+                </motion.p>
+
+                <motion.h1
+                    className={styles.name}
+                    initial={{ opacity: 0, y: 30 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, delay: 0.2 }}
+                >
+                    Linnéa
+                    <span className={styles.lastName}> Ternevik Zackrisson</span>
+                </motion.h1>
+
+                <motion.h2
+                    className={styles.title}
+                    initial={{ opacity: 0, y: 30 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, delay: 0.4 }}
+                >
+                    Junior Full Stack Software Developer
+                </motion.h2>
+
+                <motion.p
+                    className={styles.description}
+                    initial={{ opacity: 0, y: 30 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, delay: 0.6 }}
+                >
+                    Junior developer with a creative soul — where art meets code. Passionate about building meaningful applications with clean code and great user experiences.
+                </motion.p>
+
+                <motion.div
+                    className={styles.buttons}
+                    initial={{ opacity: 0, y: 30 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, delay: 0.8 }}
+                >
+                    <a href="#projects" className={styles.btnPrimary}>View Projects</a>
+                    <a href="#contact" className={styles.btnSecondary}>Contact Me</a>
+                </motion.div>
+            </div>
+            <div className={styles.glowOne}></div>
+            <div className={styles.glowTwo}></div>
+        </section>
+    );
+};
+
+export default Hero;
