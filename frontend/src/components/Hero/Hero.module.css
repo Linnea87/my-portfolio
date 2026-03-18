@@ -140,3 +140,30 @@
   color: #7c3aed;
   transform: translateY(-3px);
 }
+
+@media (max-width: 768px) {
+    .hero {
+        padding: 0 1.5rem;
+    }
+
+    .name {
+        font-size: clamp(2rem, 8vw, 3rem);
+        white-space: normal;
+    }
+
+    .content {
+        max-width: 100%;
+    }
+
+    .description {
+        font-size: 0.95rem;
+    }
+
+    .buttons {
+        flex-direction: column;
+    }
+
+    .btnPrimary, .btnSecondary {
+        text-align: center;
+    }
+}

@@ -102,3 +102,17 @@
   border-radius: 50px;
   color: #7c3aed;
 }
+
+@media (max-width: 768px) {
+    .projects {
+        padding: 6rem 1.5rem 3rem 1.5rem;
+    }
+
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    .title {
+        font-size: 2rem;
+    }
+}

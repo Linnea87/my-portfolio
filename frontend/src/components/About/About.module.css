@@ -111,3 +111,38 @@
   border-radius: 20px;
   font-size: 0.9rem;
 }
+
+@media (max-width: 768px) {
+    .about {
+        padding: 80px 1.5rem 2rem 1.5rem;
+        align-items: flex-start;
+        overflow-y: auto;
+    }
+
+    .container {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .imageWrapper {
+        width: 100%;
+    }
+
+    .placeholder {
+        width: 200px;
+        height: 230px;
+        font-size: 60px;
+    }
+
+    .content {
+        width: 100%;
+    }
+
+    .title {
+        font-size: 2rem;
+    }
+
+    .bio {
+        font-size: 0.9rem;
+    }
+}

@@ -25,6 +25,11 @@ const Navbar = () => {
         return () => observer.disconnect();
     }, []);
 
+    const handleNavClick = (sectionId) => {
+        setActiveSection(sectionId);
+        setMenuOpen(false);
+    };
+
     return (
        <motion.nav 
        className={styles.navbar}
@@ -35,15 +40,15 @@ const Navbar = () => {
         <div className={styles.logo}>LTZ</div>
 
         <ul className={`${styles.navLinks} ${menuOpen ? styles.open : ''}`}>
-            <li><a href="#hero" className={activeSection === 'hero' ? styles.active : ''}>Home</a></li>
-            <li><a href="#about" className={activeSection === 'about' ? styles.active : ''}>About</a></li>
-            <li><a href="#projects" className={activeSection === 'projects' ? styles.active : ''}>Projects</a></li>
-            <li><a href="#skills" className={activeSection === 'skills' ? styles.active : ''}>Skills</a></li>
-            <li><a href="#contact" className={activeSection === 'contact' ? styles.active : ''}>Contact</a></li>
+            <li><a href="#hero" onClick={() => handleNavClick('hero')} className={activeSection === 'hero' ? styles.active : ''}>Home</a></li>
+            <li><a href="#about" onClick={() => handleNavClick('about')} className={activeSection === 'about' ? styles.active : ''}>About</a></li>
+            <li><a href="#projects" onClick={() => handleNavClick('projects')} className={activeSection === 'projects' ? styles.active : ''}>Projects</a></li>
+            <li><a href="#skills" onClick={() => handleNavClick('skills')} className={activeSection === 'skills' ? styles.active : ''}>Skills</a></li>
+            <li><a href="#contact" onClick={() => handleNavClick('contact')} className={activeSection === 'contact' ? styles.active : ''}>Contact</a></li>
         </ul>
 
         <div 
-        className={styles.hamburger} 
+        className={`${styles.hamburger} ${menuOpen ? styles.open : ''}`}
         onClick={() => setMenuOpen(!menuOpen)}
         >
             <span></span>
