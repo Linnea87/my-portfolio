@@ -27,7 +27,7 @@ const About = () => {
                     transition={{ duration: 0.6, delay: 0.2 }}
                     viewport={{ once: true }}
                 >
-                   <h2 className={styles.title}>About Me</h2>
+                  <h2 className={styles.title}>About <span className={styles.accent}>Me</span></h2>
 
                     <p className={styles.bio}>
                         I'm a Junior Full Stack Developer with a creative soul — where art meets code.

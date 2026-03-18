@@ -35,7 +35,7 @@ const Projects = () => {
                 transition={{ duration: 0.8 }}
                 viewport={{ once: true }}
             >
-                <h2 className={styles.title}>My Projects</h2>
+                <h2 className={styles.title}>My <span className={styles.accent}>Projects</span></h2>
                 <p className={styles.subtitle}>A selection of my work on GitHub</p>
             </motion.div>
 

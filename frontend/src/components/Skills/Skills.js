@@ -59,7 +59,7 @@ const Skills = () => {
                 transition={{ duration: 0.8 }}
                 viewport={{ once: true }}
             >
-                <h2 className={styles.title}>Skills</h2>
+               <h2 className={styles.title}>My <span className={styles.accent}>Skills</span></h2>
                 <p className={styles.subtitle}>My tech stack & tools</p>
             </motion.div>
 
