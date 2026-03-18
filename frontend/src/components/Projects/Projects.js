@@ -13,7 +13,6 @@ const Projects = () => {
             .then(res => res.json())
             .then(data => {
                 const filtered = data.filter(repo => 
-                    !repo.fork && 
                     repo.description && 
                     !repo.topics.includes('exclude-from-portfolio')
                 );
