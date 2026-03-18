@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import styles from './Hero.module.css';
 import heroBg from '../../assets/hero-bg.jpg';
+import { FaGithub, FaLinkedin } from 'react-icons/fa';
 
 const Hero = () => {
     return (
@@ -53,6 +54,31 @@ const Hero = () => {
                     <a href="#projects" className={styles.btnPrimary}>View Projects</a>
                     <a href="#contact" className={styles.btnSecondary}>Contact Me</a>
                 </motion.div>
+
+                <motion.div
+                    className={styles.socials}
+                    initial={{ opacity: 0, y: 30 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, delay: 1 }}
+                >
+                    <a
+                        href="https://github.com/Linnea87"
+                        target="_blank"
+                        rel="noreferrer"
+                        className={styles.socialLink}
+                    >
+                        <FaGithub />
+                    </a>
+                    <a
+                        href="https://www.linkedin.com/in/linneaternevik"
+                        target="_blank"
+                        rel="noreferrer"
+                        className={styles.socialLink}
+                    >
+                        <FaLinkedin />
+                    </a>
+                </motion.div>
+
             </div>
             <div className={styles.glowOne}></div>
             <div className={styles.glowTwo}></div>

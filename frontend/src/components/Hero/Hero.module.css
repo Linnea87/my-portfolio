@@ -123,3 +123,20 @@
   left: 30%;
   z-index: 0;
 }
+
+.socials {
+  display: flex;
+  gap: 1.2rem;
+  margin-top: 2rem;
+}
+
+.socialLink {
+  font-size: 1.8rem;
+  color: rgba(255, 255, 255, 0.6);
+  transition: all 0.3s ease;
+}
+
+.socialLink:hover {
+  color: #7c3aed;
+  transform: translateY(-3px);
+}
