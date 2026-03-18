@@ -1,33 +1,14 @@
-import { useState, useRef } from 'react';
 import { motion } from 'framer-motion';
-import emailjs from '@emailjs/browser';
 import styles from './Contact.module.css';
+import globalStyles from '../../styles/global.module.css';
+import useContact from '../../hooks/useContact';
+
+// ====== Contact Component ===============================
 
 const Contact = () => {
-  const form = useRef();
-  const [status, setStatus] = useState('');
-  const [loading, setLoading] = useState(false);
+  const { form, status, loading, sendEmail } = useContact();
 
-  const sendEmail = (e) => {
-    e.preventDefault();
-    setLoading(true);
-
-    emailjs.sendForm(
-      process.env.REACT_APP_EMAILJS_SERVICE_ID,
-      process.env.REACT_APP_EMAILJS_TEMPLATE_ID,
-      form.current,
-      process.env.REACT_APP_EMAILJS_PUBLIC_KEY
-    )
-    .then(() => {
-      setStatus('success');
-      setLoading(false);
-      form.current.reset();
-    })
-    .catch(() => {
-      setStatus('error');
-      setLoading(false);
-    });
-  };
+  // ====== Render ===============================
 
   return (
     <section className={styles.contact} id="contact">
@@ -40,8 +21,8 @@ const Contact = () => {
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
-         <h2 className={styles.title}>Get In <span className={styles.accent}>Touch</span></h2>
-          <p className={styles.subtitle}>Feel free to reach out — I'd love to connect!</p>
+          <h2 className={globalStyles.title}>Get In <span className={globalStyles.accent}>Touch</span></h2>
+          <p className={globalStyles.subtitle}>Feel free to reach out — I'd love to connect!</p>
         </motion.div>
 
         <motion.form

@@ -1,3 +1,5 @@
+/* ====== Projects Section =============================== */
+
 .projects {
   padding: 8rem 4rem 6rem 4rem;
   background: linear-gradient(180deg, #16213e 0%, #1a1a2e 100%);
@@ -10,26 +12,6 @@
   margin-bottom: 3rem;
 }
 
-.title {
-  font-size: clamp(2rem, 4vw, 3rem);
-  font-weight: 800;
-  color: #ffffff;
-  margin-bottom: 20px;
-}
-
-.accent {
-  display: inline-block;
-  background: linear-gradient(135deg, #7c3aed, #ec4899);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.subtitle {
-  font-size: 1rem;
-  color: rgba(255, 255, 255, 0.5);
-}
-
 .loading {
   text-align: center;
   color: rgba(255, 255, 255, 0.5);
@@ -37,11 +19,15 @@
   padding: 3rem;
 }
 
+/* ====== Grid =============================== */
+
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 1.5rem;
 }
+
+/* ====== Card =============================== */
 
 .card {
   background: rgba(255, 255, 255, 0.03);
@@ -103,6 +89,8 @@
   color: #7c3aed;
 }
 
+/* ====== Mobile =============================== */
+
 @media (max-width: 768px) {
     .projects {
         padding: 6rem 1.5rem 3rem 1.5rem;
@@ -110,9 +98,5 @@
 
     .grid {
         grid-template-columns: 1fr;
-    }
-
-    .title {
-        font-size: 2rem;
     }
 }

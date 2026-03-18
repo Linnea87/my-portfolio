@@ -1,42 +1,28 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 import styles from './Projects.module.css';
+import globalStyles from '../../styles/global.module.css';
 import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
+import useProjects from '../../hooks/useProjects';
 
+// ====== Projects Component ===============================
 
 const Projects = () => {
-    const [repos, setRepos] = useState([]);
-    const [loading, setLoading] = useState(true);
+    const { repos, loading } = useProjects();
 
-    useEffect(() => {
-        fetch('https://api.github.com/users/Linnea87/repos?sort=updated&per_page=100')
-            .then(res => res.json())
-            .then(data => {
-                const filtered = data.filter(repo => 
-                    repo.description && 
-                    !repo.topics.includes('exclude-from-portfolio')
-                );
-                setRepos(filtered);
-                setLoading(false);
-            })
-            .catch(err => {
-                console.log(err);
-                setLoading(false);
-            })
-
-    }, []);
+    // ====== Render ===============================
 
     return (
         <section className={styles.projects} id="projects">
             <motion.div 
                 className={styles.header}
-                initial= {{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8 }}
                 viewport={{ once: true }}
             >
-                <h2 className={styles.title}>My <span className={styles.accent}>Projects</span></h2>
-                <p className={styles.subtitle}>A selection of my work on GitHub</p>
+                <h2 className={globalStyles.title}>My <span className={globalStyles.accent}>Projects</span></h2>
+                <p className={globalStyles.subtitle}>A selection of my work on GitHub</p>
             </motion.div>
 
             {loading ? (
@@ -72,7 +58,6 @@ const Projects = () => {
                         </motion.div>
                     ))}
                 </div>
-
             )}
         </section>
     );

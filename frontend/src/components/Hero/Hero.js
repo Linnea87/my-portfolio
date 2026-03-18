@@ -4,7 +4,12 @@ import styles from './Hero.module.css';
 import heroBg from '../../assets/hero-bg.jpg';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
 
+// ====== Hero Component ===============================
+
 const Hero = () => {
+
+    // ====== Render ===============================
+
     return (
         <section className={styles.hero} id="hero" style={{ backgroundImage: `url(${heroBg})` }}>
             <div className={styles.content}>

@@ -1,12 +1,18 @@
 import { motion } from 'framer-motion';
 import styles from './About.module.css';
+import globalStyles from '../../styles/global.module.css';
+
+
+// ====== About Component ===============================
 
 const About = () => {
+
+    // ====== Render ===============================
+
     return (
         <section className={styles.about} id="about">
             <div className={styles.container}>
 
-                {/* Illustration */}
                 <motion.div
                     className={styles.imageWrapper}
                     initial={{ opacity: 0, x: -50 }}
@@ -19,7 +25,6 @@ const About = () => {
                     </div>
                 </motion.div>
 
-                {/* Text */}
                 <motion.div
                     className={styles.content}
                     initial={{ opacity: 0, x: 50 }}
@@ -27,7 +32,8 @@ const About = () => {
                     transition={{ duration: 0.6, delay: 0.2 }}
                     viewport={{ once: true }}
                 >
-                  <h2 className={styles.title}>About <span className={styles.accent}>Me</span></h2>
+                    <h2 className={styles.title}>About <span className={globalStyles.accent}>Me</span></h2>
+
 
                     <p className={styles.bio}>
                         I'm a Junior Full Stack Developer with a creative soul — where art meets code.
@@ -40,14 +46,12 @@ const About = () => {
                         the frontend and backend connect and work together. To me, it's the best of both
                         worlds, and understanding the full flow makes me a better developer.
                     </p>
-
                     <p className={styles.bio}>
                         To broaden my skills even further, I'm currently studying mobile app development
                         at Folkuniversitetet — working with Java, Kotlin and SwiftUI. Because I believe
                         great developers never stop learning!
                     </p>
 
-                    {/* Utbildning */}
                     <div className={styles.section}>
                         <h3 className={styles.sectionTitle}>Education</h3>
                         <div className={styles.educationItem}>
@@ -66,7 +70,6 @@ const About = () => {
                         </div>
                     </div>
 
-                    {/* Intressen */}
                     <div className={styles.section}>
                         <h3 className={styles.sectionTitle}>Interests</h3>
                         <div className={styles.interests}>

@@ -1,3 +1,5 @@
+/* ====== Contact Section =============================== */
+
 .contact {
   padding: 6rem 4rem;
   background: linear-gradient(180deg, #16213e 0%, #1a1a2e 100%);
@@ -10,31 +12,13 @@
   margin: 0 auto;
   width: 100%;
 }
+
 .header {
   text-align: center;
   margin-bottom: 3rem;
 }
 
-.title {
-  font-size: clamp(2rem, 4vw, 3rem);
-  font-weight: 800;
-  color: #ffffff;
-  margin-bottom: 20px;
-}
-
-.accent {
-  display: inline-block;
-  background: linear-gradient(135deg, #7c3aed, #ec4899);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-
-.subtitle {
-  font-size: 1rem;
-  color: rgba(255, 255, 255, 0.5);
-}
+/* ====== Form =============================== */
 
 .form {
   display: flex;
@@ -92,6 +76,8 @@
   border-color: #7c3aed;
 }
 
+/* ====== Button =============================== */
+
 .btn {
   padding: 0.9rem 2rem;
   background: linear-gradient(135deg, #7c3aed, #ec4899);
@@ -117,6 +103,8 @@
   transform: none;
 }
 
+/* ====== Status Messages =============================== */
+
 .success {
   color: #06b6d4;
   font-size: 0.95rem;
@@ -127,6 +115,8 @@
   font-size: 0.95rem;
 }
 
+/* ====== Mobile =============================== */
+
 @media (max-width: 768px) {
     .contact {
         padding: 6rem 1.5rem;
@@ -135,10 +125,6 @@
 
     .row {
         grid-template-columns: 1fr;
-    }
-
-    .title {
-        font-size: 2rem;
     }
 
     .btn {

@@ -1,14 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import styles from './Navbar.module.css';
+import { SECTIONS, NAV_LINKS } from '../../constants/navigation';
+
+// ====== Navbar Component ===============================
 
 const Navbar = () => {
     const [menuOpen, setMenuOpen] = useState(false);
     const [activeSection, setActiveSection] = useState('hero');
 
+    // ====== Intersection Observer ===============================
+
     useEffect(() => {
-        const sections = ['hero', 'about', 'projects', 'skills', 'contact'];
-        
         const observer = new IntersectionObserver((entries) => {
             entries.forEach((entry) => {
                 if (entry.isIntersecting) {
@@ -17,7 +20,7 @@ const Navbar = () => {
             });
         }, { threshold: 0.1 });
 
-        sections.forEach((id) => {
+        SECTIONS.forEach((id) => {
             const el = document.getElementById(id);
             if (el) observer.observe(el);
         });
@@ -25,10 +28,14 @@ const Navbar = () => {
         return () => observer.disconnect();
     }, []);
 
+    // ====== Handlers ===============================
+
     const handleNavClick = (sectionId) => {
         setActiveSection(sectionId);
         setMenuOpen(false);
     };
+
+    // ====== Render ===============================
 
     return (
        <motion.nav 
@@ -40,11 +47,17 @@ const Navbar = () => {
         <div className={styles.logo}>LTZ</div>
 
         <ul className={`${styles.navLinks} ${menuOpen ? styles.open : ''}`}>
-            <li><a href="#hero" onClick={() => handleNavClick('hero')} className={activeSection === 'hero' ? styles.active : ''}>Home</a></li>
-            <li><a href="#about" onClick={() => handleNavClick('about')} className={activeSection === 'about' ? styles.active : ''}>About</a></li>
-            <li><a href="#projects" onClick={() => handleNavClick('projects')} className={activeSection === 'projects' ? styles.active : ''}>Projects</a></li>
-            <li><a href="#skills" onClick={() => handleNavClick('skills')} className={activeSection === 'skills' ? styles.active : ''}>Skills</a></li>
-            <li><a href="#contact" onClick={() => handleNavClick('contact')} className={activeSection === 'contact' ? styles.active : ''}>Contact</a></li>
+            {NAV_LINKS.map((link) => (
+                <li key={link.id}>
+                    <a
+                        href={`#${link.id}`}
+                        onClick={() => handleNavClick(link.id)}
+                        className={activeSection === link.id ? styles.active : ''}
+                    >
+                        {link.label}
+                    </a>
+                </li>
+            ))}
         </ul>
 
         <div 
