@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef } from 'react';
 import { motion } from 'framer-motion';
 import styles from './Projects.module.css';
 import globalStyles from '../../styles/global.module.css';
@@ -7,24 +7,9 @@ import useProjects from '../../hooks/useProjects';
 
 // ====== Projects Component ===============================
 
-const MOBILE_BREAKPOINT = 768;
-
 const Projects = () => {
     const { repos, loading } = useProjects();
     const carouselRef = useRef(null);
-    const [activeIndex, setActiveIndex] = useState(null);
-
-    const handleCardClick = (index) => {
-        if (window.innerWidth <= MOBILE_BREAKPOINT) {
-            setActiveIndex(index);
-        }
-    };
-
-    const handleCardFocus = (index) => {
-        if (window.innerWidth <= MOBILE_BREAKPOINT) {
-            setActiveIndex(index);
-        }
-    };
 
     // ====== Scroll Handlers ===============================
 
@@ -72,8 +57,7 @@ const Projects = () => {
                         {repos.map((repo, index) => (
                             <motion.div 
                                 key={repo.id}
-                                className={`${styles.card} ${activeIndex === index ? styles.cardSelected : ''}`}
-                                onClick={() => handleCardClick(index)}
+                                className={styles.card}
                                 initial={{ opacity: 0, y: 30 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.6, delay: index * 0.05 }}
@@ -85,7 +69,6 @@ const Projects = () => {
                                     rel="noreferrer"
                                     className={styles.cardLink}
                                     aria-label={`Open repository: ${repo.name}`}
-                                    onFocus={() => handleCardFocus(index)}
                                 >
                                     <div className={styles.cardHeader}>
                                         <h3 className={styles.repoName}>{repo.name}</h3>
