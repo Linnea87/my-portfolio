@@ -7,9 +7,24 @@ import useProjects from '../../hooks/useProjects';
 
 // ====== Projects Component ===============================
 
+const MOBILE_BREAKPOINT = 768;
+const MOBILE_LINK_DELAY = 420;
+
 const Projects = () => {
     const { repos, loading } = useProjects();
     const carouselRef = useRef(null);
+
+    const handleCardLinkClick = (event, url) => {
+        if (window.innerWidth <= MOBILE_BREAKPOINT) {
+            event.preventDefault();
+
+            window.setTimeout(() => {
+                window.open(url, '_blank', 'noopener,noreferrer');
+            }, MOBILE_LINK_DELAY);
+
+            return;
+        }
+    };
 
     // ====== Scroll Handlers ===============================
 
@@ -69,6 +84,7 @@ const Projects = () => {
                                     rel="noreferrer"
                                     className={styles.cardLink}
                                     aria-label={`Open repository: ${repo.name}`}
+                                    onClick={(event) => handleCardLinkClick(event, repo.html_url)}
                                 >
                                     <div className={styles.cardHeader}>
                                         <h3 className={styles.repoName}>{repo.name}</h3>
