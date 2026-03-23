@@ -81,6 +81,9 @@ const Projects = () => {
                                     {repo.language && (
                                         <span className={styles.language}>{repo.language}</span>
                                     )}
+                                    <div className={styles.cardIndicator}>
+                                        <FaExternalLinkAlt />
+                                    </div>
                                 </a>
                             </motion.div>
                         ))}
