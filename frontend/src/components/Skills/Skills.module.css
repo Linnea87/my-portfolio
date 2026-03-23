@@ -32,16 +32,11 @@
 }
 
 .tickerLeft {
-    animation: scrollLeft 35s linear infinite;
+    animation: scrollLeft 60s linear infinite;
 }
 
 .tickerRight {
-    animation: scrollRight 35s linear infinite;
-}
-
-.tickerWrapper:hover .tickerLeft,
-.tickerWrapper:hover .tickerRight {
-    animation-play-state: paused;
+    animation: scrollRight 60s linear infinite;
 }
 
 .tickerItem {
@@ -56,15 +51,7 @@
     font-size: 0.85rem;
     font-weight: 500;
     white-space: nowrap;
-    transition: all 0.3s ease;
     box-shadow: 0 0 15px rgba(124, 58, 237, 0.2);
-}
-
-.tickerItem:hover {
-    background: rgba(236, 72, 153, 0.15);
-    border-color: rgba(236, 72, 153, 0.6);
-    color: #ffffff;
-    box-shadow: 0 0 25px rgba(236, 72, 153, 0.35);
 }
 
 /* ====== Animations =============================== */
@@ -88,11 +75,20 @@
 
     .header {
         padding: 0 1.5rem;
-        margin-bottom: 2.5rem;
+        margin-bottom: 2rem;
+    }
+
+    .tickerWrapper {
+        margin-bottom: 1rem;
+    }
+
+    .tickerTrack {
+        gap: 0.8rem;
     }
 
     .tickerItem {
-        padding: 0.6rem 1rem;
-        font-size: 0.8rem;
+        padding: 0.5rem 0.8rem;
+        font-size: 0.75rem;
+        gap: 0.4rem;
     }
 }
