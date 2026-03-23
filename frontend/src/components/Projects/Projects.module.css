@@ -68,22 +68,12 @@
   cursor: pointer;
 }
 
-@media (hover: none) {
-  .card:hover {
-    border-color: rgba(124, 58, 237, 0.35);
-    background: rgba(255, 255, 255, 0.03);
-    transform: none;
-    box-shadow: 0 0 25px rgba(124, 58, 237, 0.15), 
-                0 4px 15px rgba(0, 0, 0, 0.2);
-    cursor: pointer;
-  }
-
-  .cardActive {
-    border-color: rgba(236, 72, 153, 0.6);
-    background: rgba(236, 72, 153, 0.05);
-    box-shadow: 0 0 30px rgba(236, 72, 153, 0.2),
-                0 10px 30px rgba(236, 72, 153, 0.15);
-  }
+.cardSelected {
+  border-color: rgba(236, 72, 153, 0.6);
+  background: rgba(236, 72, 153, 0.05);
+  transform: translateY(-5px);
+  box-shadow: 0 0 30px rgba(236, 72, 153, 0.2),
+              0 10px 30px rgba(236, 72, 153, 0.15);
 }
 
 .card:active {
@@ -215,11 +205,8 @@
     transform: translateY(-5px) scale(1.03);
   }
 
-  .cardActive {
-    border-color: rgba(124, 58, 237, 0.35);
-    background: rgba(255, 255, 255, 0.03);
-    box-shadow: 0 0 25px rgba(124, 58, 237, 0.15), 
-                0 4px 15px rgba(0, 0, 0, 0.2);
+  .cardSelected {
+    transform: translateY(-5px) scale(1.03);
   }
 }
 
@@ -238,6 +225,29 @@
 
     .carouselWrapper {
         gap: 0.5rem;
+    }
+
+    .card:hover {
+        border-color: rgba(124, 58, 237, 0.35);
+        background: rgba(255, 255, 255, 0.03);
+        transform: none;
+        box-shadow: 0 0 25px rgba(124, 58, 237, 0.15),
+                    0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .card:active {
+        border-color: rgba(124, 58, 237, 0.35);
+        background: rgba(255, 255, 255, 0.03);
+        transform: none;
+        opacity: 1;
+    }
+
+    .cardSelected {
+        border-color: rgba(236, 72, 153, 0.6);
+        background: rgba(236, 72, 153, 0.05);
+        transform: none;
+        box-shadow: 0 0 30px rgba(236, 72, 153, 0.2),
+                    0 10px 30px rgba(236, 72, 153, 0.15);
     }
 
     .arrowLeft, .arrowRight {
