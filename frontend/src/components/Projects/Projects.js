@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import styles from './Projects.module.css';
 import globalStyles from '../../styles/global.module.css';
@@ -10,6 +10,36 @@ import useProjects from '../../hooks/useProjects';
 const Projects = () => {
     const { repos, loading } = useProjects();
     const carouselRef = useRef(null);
+    const [activeIndex, setActiveIndex] = useState(0);
+
+    // ====== Active Card Observer ===============================
+
+  useEffect(() => {
+    const carousel = carouselRef.current;
+    if (!carousel) return;
+
+    const handleScroll = () => {
+        const cards = carousel.querySelectorAll(`.${styles.card}`);
+        const carouselRect = carousel.getBoundingClientRect();
+        const carouselCenter = carouselRect.left + carouselRect.width / 2;
+        let closest = 0;
+        let closestDistance = Infinity;
+
+        cards.forEach((card, index) => {
+            const cardRect = card.getBoundingClientRect();
+            const cardCenter = cardRect.left + cardRect.width / 2;
+            const distance = Math.abs(cardCenter - carouselCenter);
+            if (distance < closestDistance) {
+                closestDistance = distance;
+                closest = index;
+            }
+        });
+        setActiveIndex(closest);
+    };
+
+    carousel.addEventListener('scroll', handleScroll);
+    return () => carousel.removeEventListener('scroll', handleScroll);
+}, [repos]);
 
     // ====== Scroll Handlers ===============================
 
@@ -57,7 +87,7 @@ const Projects = () => {
                         {repos.map((repo, index) => (
                             <motion.div 
                                 key={repo.id}
-                                className={styles.card}
+                                className={`${styles.card} ${activeIndex === index ? styles.cardActive : ''}`}
                                 initial={{ opacity: 0, y: 30 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.6, delay: index * 0.05 }}
