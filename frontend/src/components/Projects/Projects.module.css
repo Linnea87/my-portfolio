@@ -65,6 +65,21 @@
   transform: translateY(-5px);
   box-shadow: 0 0 30px rgba(236, 72, 153, 0.2),
               0 10px 30px rgba(236, 72, 153, 0.15);
+  cursor: pointer;
+}
+
+.cardLink {
+  display: block;
+  width: 100%;
+  height: 100%;
+  text-decoration: none;
+  color: inherit;
+  padding: inherit;
+  border-radius: inherit;
+}
+
+.cardLink:hover {
+  text-decoration: none;
 }
 
 .cardHeader {
@@ -133,6 +148,29 @@
 .arrowLeft:hover, .arrowRight:hover {
   background: rgba(124, 58, 237, 0.5);
   transform: scale(1.1);
+}
+
+/* ====== Desktop Large =============================== */
+
+@media (min-width: 1200px) {
+  .projects {
+    padding: 8rem 6rem 6rem 6rem;
+  }
+
+  .carousel {
+    gap: 2rem;
+    padding: 2rem 0.5rem;
+  }
+
+  .card {
+    flex: 0 0 420px;
+    min-height: 260px;
+    padding: 2rem;
+  }
+
+  .card:hover {
+    transform: translateY(-5px) scale(1.03);
+  }
 }
 
 /* ====== Mobile =============================== */

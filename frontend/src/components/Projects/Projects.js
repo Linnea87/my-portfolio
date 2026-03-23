@@ -13,12 +13,21 @@ const Projects = () => {
 
     // ====== Scroll Handlers ===============================
 
+    const getScrollStep = () => {
+        const card = carouselRef.current?.querySelector(`.${styles.card}`);
+        if (!card) return 340;
+        const cardWidth = card.getBoundingClientRect().width;
+        return Math.round(cardWidth + 24); // card + gap
+    };
+
     const scrollLeft = () => {
-        carouselRef.current.scrollBy({ left: -340, behavior: 'smooth' });
+        const step = getScrollStep();
+        carouselRef.current.scrollBy({ left: -step, behavior: 'smooth' });
     };
 
     const scrollRight = () => {
-        carouselRef.current.scrollBy({ left: 340, behavior: 'smooth' });
+        const step = getScrollStep();
+        carouselRef.current.scrollBy({ left: step, behavior: 'smooth' });
     };
 
     // ====== Render ===============================
@@ -54,23 +63,25 @@ const Projects = () => {
                                 transition={{ duration: 0.6, delay: index * 0.05 }}
                                 viewport={{ once: true }}
                             >
-                                <div className={styles.cardHeader}>
-                                    <h3 className={styles.repoName}>{repo.name}</h3>
-                                    <div className={styles.links}>
-                                        <a href={repo.html_url} target="_blank" rel="noreferrer">
-                                            <FaGithub />
-                                        </a>
-                                        {repo.homepage && (
-                                            <a href={repo.homepage} target="_blank" rel="noreferrer">
-                                                <FaExternalLinkAlt />
+                                <a href={repo.html_url} target="_blank" rel="noreferrer" className={styles.cardLink} aria-label={`Open repository: ${repo.name}`}>
+                                    <div className={styles.cardHeader}>
+                                        <h3 className={styles.repoName}>{repo.name}</h3>
+                                        <div className={styles.links}>
+                                            <a href={repo.html_url} target="_blank" rel="noreferrer">
+                                                <FaGithub />
                                             </a>
-                                        )} 
+                                            {repo.homepage && (
+                                                <a href={repo.homepage} target="_blank" rel="noreferrer">
+                                                    <FaExternalLinkAlt />
+                                                </a>
+                                            )} 
+                                        </div>
                                     </div>
-                                </div>
-                                <p className={styles.description}>{repo.description}</p>
-                                {repo.language && (
-                                    <span className={styles.language}>{repo.language}</span>
-                                )}
+                                    <p className={styles.description}>{repo.description}</p>
+                                    {repo.language && (
+                                        <span className={styles.language}>{repo.language}</span>
+                                    )}
+                                </a>
                             </motion.div>
                         ))}
                     </div>
