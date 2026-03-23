@@ -104,8 +104,29 @@
   border: 1px solid #7c3aed44;
   color: #c4b5fd;
   padding: 6px 14px;
-  border-radius: 20px;
+  border-radius: 8px;
   font-size: 0.9rem;
+}
+
+/* ====== CV Button =============================== */
+
+.cvBtn {
+  display: inline-block;
+  margin-top: 1.5rem;
+  padding: 0.9rem 2rem;
+  background: linear-gradient(135deg, #7c3aed, #ec4899);
+  color: #ffffff;
+  text-decoration: none;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 20px rgba(124, 58, 237, 0.4);
+}
+
+.cvBtn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 35px rgba(124, 58, 237, 0.6);
 }
 
 /* ====== Mobile =============================== */

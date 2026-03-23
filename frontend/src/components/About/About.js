@@ -78,9 +78,12 @@ const About = () => {
                             <span className={styles.tag}>🎨 Art & Design</span>
                             <span className={styles.tag}>📱 Mobile Dev</span>
                             <span className={styles.tag}>🌐 Web Dev</span>
+                            <span className={styles.tag}>⚙️ Backend</span>
                             <span className={styles.tag}>✨ UI/UX</span>
                         </div>
                     </div>
+
+                    <a href="/CV.pdf" download className={styles.cvBtn}>Download CV</a>
 
                 </motion.div>
             </div>
