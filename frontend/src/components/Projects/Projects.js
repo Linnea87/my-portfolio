@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import styles from './Projects.module.css';
 import globalStyles from '../../styles/global.module.css';
@@ -13,12 +13,29 @@ const MOBILE_LINK_DELAY = 420;
 const Projects = () => {
     const { repos, loading } = useProjects();
     const carouselRef = useRef(null);
+    const [touchActiveIndex, setTouchActiveIndex] = useState(null);
 
-    const handleCardLinkClick = (event, url) => {
-        if (window.innerWidth <= MOBILE_BREAKPOINT) {
+    const isMobileViewport = () => window.innerWidth <= MOBILE_BREAKPOINT;
+
+    const handleCardTouchStart = (index) => {
+        if (isMobileViewport()) {
+            setTouchActiveIndex(index);
+        }
+    };
+
+    const handleCardTouchCancel = () => {
+        if (isMobileViewport()) {
+            setTouchActiveIndex(null);
+        }
+    };
+
+    const handleCardLinkClick = (event, url, index) => {
+        if (isMobileViewport()) {
             event.preventDefault();
+            setTouchActiveIndex(index);
 
             window.setTimeout(() => {
+                setTouchActiveIndex(null);
                 window.open(url, '_blank', 'noopener,noreferrer');
             }, MOBILE_LINK_DELAY);
 
@@ -72,7 +89,7 @@ const Projects = () => {
                         {repos.map((repo, index) => (
                             <motion.div 
                                 key={repo.id}
-                                className={styles.card}
+                                className={`${styles.card} ${touchActiveIndex === index ? styles.cardTouchActive : ''}`}
                                 initial={{ opacity: 0, y: 30 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.6, delay: index * 0.05 }}
@@ -84,7 +101,9 @@ const Projects = () => {
                                     rel="noreferrer"
                                     className={styles.cardLink}
                                     aria-label={`Open repository: ${repo.name}`}
-                                    onClick={(event) => handleCardLinkClick(event, repo.html_url)}
+                                    onTouchStart={() => handleCardTouchStart(index)}
+                                    onTouchCancel={handleCardTouchCancel}
+                                    onClick={(event) => handleCardLinkClick(event, repo.html_url, index)}
                                 >
                                     <div className={styles.cardHeader}>
                                         <h3 className={styles.repoName}>{repo.name}</h3>

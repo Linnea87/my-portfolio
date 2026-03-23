@@ -59,7 +59,8 @@
               0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
-.card:hover {
+.card:hover,
+.cardTouchActive {
   border-color: rgba(236, 72, 153, 0.6);
   background: rgba(236, 72, 153, 0.05);
   transform: translateY(-5px);
@@ -90,6 +91,11 @@
   text-decoration: none;
 }
 
+.cardLink:focus,
+.cardLink:focus-visible {
+  outline: none;
+}
+
 .cardIndicator {
   position: absolute;
   bottom: 1rem;
@@ -101,7 +107,8 @@
 }
 
 @media (hover: hover) {
-  .card:hover .cardIndicator {
+  .card:hover .cardIndicator,
+  .cardTouchActive .cardIndicator {
     color: rgba(236, 72, 153, 0.8);
     transform: translateX(3px);
   }
@@ -224,16 +231,27 @@
                     0 4px 15px rgba(0, 0, 0, 0.2);
     }
 
-    .card:active {
+    .cardLink {
+        -webkit-tap-highlight-color: transparent;
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        user-select: none;
+    }
+
+    .cardIndicator {
+        transition: none;
+    }
+
+    .card.cardTouchActive {
         border-color: rgba(236, 72, 153, 0.6);
         background: rgba(236, 72, 153, 0.05);
         transform: translateY(-5px);
-        opacity: 1;
         box-shadow: 0 0 30px rgba(236, 72, 153, 0.2),
                     0 10px 30px rgba(236, 72, 153, 0.15);
+        cursor: pointer;
     }
 
-    .card:active .cardIndicator {
+    .card.cardTouchActive .cardIndicator {
         color: rgba(236, 72, 153, 0.8);
         transform: translateX(3px);
     }
