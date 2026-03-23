@@ -1,7 +1,7 @@
 /* ====== Skills Section =============================== */
 
 .skills {
-    padding: 6rem 0;
+    padding: 4rem 0;
     background: linear-gradient(180deg, #1a1a2e 0%, #16213e 100%);
     overflow: hidden;
     display: flex;
@@ -32,11 +32,11 @@
 }
 
 .tickerLeft {
-    animation: scrollLeft 25s linear infinite;
+    animation: scrollLeft 35s linear infinite;
 }
 
 .tickerRight {
-    animation: scrollRight 25s linear infinite;
+    animation: scrollRight 35s linear infinite;
 }
 
 .tickerWrapper:hover .tickerLeft,
@@ -50,19 +50,21 @@
     gap: 0.6rem;
     padding: 0.75rem 1.4rem;
     background: rgba(255, 255, 255, 0.04);
-    border: 1px solid rgba(124, 58, 237, 0.2);
+    border: 1px solid rgba(124, 58, 237, 0.35);
     border-radius: 50px;
     color: rgba(255, 255, 255, 0.8);
     font-size: 0.85rem;
     font-weight: 500;
     white-space: nowrap;
     transition: all 0.3s ease;
+    box-shadow: 0 0 15px rgba(124, 58, 237, 0.2);
 }
 
 .tickerItem:hover {
-    background: rgba(124, 58, 237, 0.15);
-    border-color: rgba(124, 58, 237, 0.5);
+    background: rgba(236, 72, 153, 0.15);
+    border-color: rgba(236, 72, 153, 0.6);
     color: #ffffff;
+    box-shadow: 0 0 25px rgba(236, 72, 153, 0.35);
 }
 
 /* ====== Animations =============================== */

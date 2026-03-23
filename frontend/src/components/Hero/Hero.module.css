@@ -68,40 +68,6 @@
   flex-wrap: wrap;
 }
 
-.btnPrimary {
-  padding: 0.9rem 2rem;
-  background: linear-gradient(135deg, #7c3aed, #ec4899);
-  color: #ffffff;
-  text-decoration: none;
-  border-radius: 50px;
-  font-weight: 600;
-  font-size: 0.95rem;
-  transition: all 0.3s ease;
-  box-shadow: 0 0 20px rgba(124, 58, 237, 0.4);
-}
-
-.btnPrimary:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 0 35px rgba(124, 58, 237, 0.6);
-}
-
-.btnSecondary {
-  padding: 0.9rem 2rem;
-  border: 1px solid rgba(124, 58, 237, 0.6);
-  color: #ffffff;
-  text-decoration: none;
-  border-radius: 50px;
-  font-weight: 600;
-  font-size: 0.95rem;
-  transition: all 0.3s ease;
-}
-
-.btnSecondary:hover {
-  border-color: #ec4899;
-  color: #ec4899;
-  transform: translateY(-3px);
-}
-
 .glowOne {
   position: absolute;
   width: 500px;
@@ -137,7 +103,7 @@
 }
 
 .socialLink:hover {
-  color: #7c3aed;
+  color: #ec4899;
   transform: translateY(-3px);
 }
 
@@ -161,9 +127,5 @@
 
     .buttons {
         flex-direction: column;
-    }
-
-    .btnPrimary, .btnSecondary {
-        text-align: center;
     }
 }

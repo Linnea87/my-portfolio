@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import styles from './Hero.module.css';
+import globalStyles from '../../styles/global.module.css';
 import heroBg from '../../assets/hero-bg.jpg';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
 
@@ -56,9 +57,9 @@ const Hero = () => {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.8 }}
                 >
-                    <a href="#projects" className={styles.btnPrimary}>View Projects</a>
-                    <a href="#contact" className={styles.btnSecondary}>Contact Me</a>
-                    <a href="/CV.pdf" download className={styles.btnSecondary}>Download CV</a>
+                    <a href="#projects" className={globalStyles.btnPrimary}>View Projects</a>
+                    <a href="#contact" className={globalStyles.btnSecondary}>Contact Me</a>
+                    <a href="/CV.pdf" download className={globalStyles.btnSecondary}>Download CV</a>
                 </motion.div>
 
                 <motion.div

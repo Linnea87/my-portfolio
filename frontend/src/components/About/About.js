@@ -83,7 +83,7 @@ const About = () => {
                         </div>
                     </div>
 
-                    <a href="/CV.pdf" download className={styles.cvBtn}>Download CV</a>
+                    <a href="/CV.pdf" download className={globalStyles.btnSecondary}>Download CV</a>
 
                 </motion.div>
             </div>

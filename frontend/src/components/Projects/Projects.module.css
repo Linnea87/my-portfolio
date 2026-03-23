@@ -5,6 +5,9 @@
   background: linear-gradient(180deg, #16213e 0%, #1a1a2e 100%);
   scroll-snap-align: start;
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .header {
@@ -19,29 +22,49 @@
   padding: 3rem;
 }
 
-/* ====== Grid =============================== */
+/* ====== Carousel =============================== */
 
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+.carouselWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.carousel {
+  display: flex;
   gap: 1.5rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  padding: 1rem 0.5rem;
+}
+
+.carousel::-webkit-scrollbar {
+  display: none;
 }
 
 /* ====== Card =============================== */
 
 .card {
   background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(124, 58, 237, 0.2);
+  border: 1px solid rgba(124, 58, 237, 0.35);
   border-radius: 12px;
   padding: 1.5rem;
   transition: all 0.3s ease;
+  scroll-snap-align: start;
+  flex: 0 0 300px;
+  min-height: 200px;
+  box-shadow: 0 0 25px rgba(124, 58, 237, 0.15), 
+              0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
 .card:hover {
-  border-color: rgba(124, 58, 237, 0.6);
-  background: rgba(124, 58, 237, 0.05);
+  border-color: rgba(236, 72, 153, 0.6);
+  background: rgba(236, 72, 153, 0.05);
   transform: translateY(-5px);
-  box-shadow: 0 10px 30px rgba(124, 58, 237, 0.15);
+  box-shadow: 0 0 30px rgba(236, 72, 153, 0.2),
+              0 10px 30px rgba(236, 72, 153, 0.15);
 }
 
 .cardHeader {
@@ -89,6 +112,29 @@
   color: #7c3aed;
 }
 
+/* ====== Arrows =============================== */
+
+.arrowLeft, .arrowRight {
+  background: rgba(124, 58, 237, 0.2);
+  border: 1px solid rgba(124, 58, 237, 0.4);
+  color: #ffffff;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+  z-index: 1;
+}
+
+.arrowLeft:hover, .arrowRight:hover {
+  background: rgba(124, 58, 237, 0.5);
+  transform: scale(1.1);
+}
+
 /* ====== Mobile =============================== */
 
 @media (max-width: 768px) {
@@ -96,7 +142,12 @@
         padding: 6rem 1.5rem 3rem 1.5rem;
     }
 
-    .grid {
-        grid-template-columns: 1fr;
+    .card {
+        flex: 0 0 260px;
+    }
+
+    .arrowLeft, .arrowRight {
+        width: 32px;
+        height: 32px;
     }
 }
