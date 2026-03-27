@@ -59,7 +59,7 @@ const Hero = () => {
                 >
                     <a href="#projects" className={globalStyles.btnPrimary}>View Projects</a>
                     <a href="#contact" className={globalStyles.btnSecondary}>Contact Me</a>
-                    <a href="/CV.pdf" download className={globalStyles.btnSecondary}>Download CV</a>
+                    <a href="/cv.pdf" download className={globalStyles.btnSecondary}>Download CV</a>
                 </motion.div>
 
                 <motion.div
