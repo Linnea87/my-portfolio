@@ -7,6 +7,10 @@ import { useState, useEffect } from 'react';
 const GITHUB_URL = 'https://api.github.com/users/Linnea87/repos?sort=updated&per_page=100';
 const EXCLUDE_TOPIC = 'exclude-from-portfolio';
 
+const LANGUAGE_OVERRIDES = {
+    'scene-it': 'Swift',
+};
+
 // ====== Hook ===============================
 
 const useProjects = () => {
@@ -17,10 +21,15 @@ const useProjects = () => {
         fetch(GITHUB_URL)
             .then(res => res.json())
             .then(data => {
-                const filtered = data.filter(repo =>
-                    repo.description &&
-                    !repo.topics.includes(EXCLUDE_TOPIC)
-                );
+                const filtered = data
+                    .filter(repo =>
+                        repo.description &&
+                        !repo.topics.includes(EXCLUDE_TOPIC)
+                    )
+                    .map(repo => ({
+                        ...repo,
+                        language: LANGUAGE_OVERRIDES[repo.name] ?? repo.language,
+                    }));
                 setRepos(filtered);
                 setLoading(false);
             })
